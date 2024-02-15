@@ -1,22 +1,22 @@
 #!/bin/bash
-if [ ! -d "Fooocus" ]
+if [ ! -d "SimpleSDXL" ]
 then
-  git clone https://github.com/lllyasviel/Fooocus.git
+  git clone https://github.com/metercai/SimpleSDXL.git
   #git clone --depth 1 --branch V2 https://github.com/lllyasviel/Fooocus.git
   # Create the config file pointing the checkpoints to checkpoints-real-folder
 fi
-cd Fooocus
+cd SimpleSDXL
 git pull
-if [ ! -L ~/.conda/envs/fooocus ]
+if [ ! -L ~/.conda/envs/SimpleSDXL ]
 then
-    ln -s /tmp/fooocus ~/.conda/envs/
+    ln -s /tmp/SimpleSDXL ~/.conda/envs/
 fi
 eval "$(conda shell.bash hook)"
 if [ ! -d /tmp/fooocus ]
 then
-    mkdir /tmp/fooocus
+    mkdir /tmp/SimpleSDXL
     conda env create -f environment.yaml
-    conda activate fooocus
+    conda activate SimpleSDXL
     pwd
     ls
     pip install -r requirements_versions.txt
@@ -47,7 +47,7 @@ then
     ln -s models/checkpoints-real-folder models/checkpoints
 fi
 
-conda activate fooocus
+conda activate SimpleSDXL
 cd ..
 if [ $# -eq 0 ]
 then
